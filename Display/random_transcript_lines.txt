@@ -8,3 +8,5 @@ Teacher:Lets all listen please!
 Teacher:Good question, Henry VIII
 Teacher:Yes, now start your work
 Teacher:The square root of 100 is 10
+Julie:How can you measure the diameter of this circle?
+Teacher:Remember pi?

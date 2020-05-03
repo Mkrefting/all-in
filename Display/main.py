@@ -90,7 +90,8 @@ while(True):
     #check bandwidth every 100 frames
     if time_to_test_bandwidth():
         bandwidth = get_bandwidth()
-        if bandwidth < 20:
+        if bandwidth < 10:
+        if bandwidth < 25:
             show_cc = True
         else:
             show_cc = False
