@@ -2,20 +2,22 @@
 "Making Online Education Accessible for All!"
 
 
-### Our Code ###
+## Our Code ##
 We have split up 'All-In' into two parts:
 1. Live transcription of speaker's voice to text
 2. User's display; how it adapts when low bandwidth and how it adapts when no internet connection at all
 
-#How (1) works:
-Run the python code (through command line works best)
-Enter speaker's name
-Speak
-When speaking is detected to have stopped...
-... the Google Web Speech API translates the audio into text
+###How (1) works:
+
+Run the python code (through command line works best),
+Enter speaker's name,
+Speak,
+When speaking is detected to have stopped...,
+... the Google Web Speech API translates the audio into text,
 This text is added to the 'lesson_text.txt' file which represents the lesson text feed
 
-#How (2) works:
+###How (2) works:
+
 3 main variables: frame (and audio), bandwidth, live CC
 Run the 'start_lesson.py' code - this initialises the process of collecting live CCs
 	(in our case, we collect a random CC from a store of CC's ('random_lesson_transcipt.txt'))
@@ -28,40 +30,42 @@ If this bandwidth is 0 Mbps / no internet connection is detected, the video/audi
 
 Else if bandwidth is above the threshold point of 20 Mbps (the most effective threshold point will need to be tested for), normal face-to-face video/audio continues.
 
-#Current restrictions#
-the user currently sees a 'live video' of themselves
-a random bandwidth between 1 and 70 (Mbps) is generated and displayed
-CCs are updated live to the 'lesson_text.txt' file from a store of audio transcript, not from all the teacher / not the students 
+###Current restrictions
+the user currently sees a 'live video' of themselves,
+a random bandwidth between 1 and 70 (Mbps) is generated and displayed,
+CCs are updated live to the 'lesson_text.txt' file from a store of audio transcript not from all the teacher / not the students
 
-### SETUP ###
+## SETUP ##
 
-##Download Requirements (for MacOS X)##
-. 'brew install portaudio'
+###Download Requirements (for MacOS X):
+. 'brew install portaudio',
 . 'pip install -r requirements.txt'
 
-#How to run - Display#
-. 'python3 Display/start_lesson.py'
+###How to run - Display:
+. 'python3 Display/start_lesson.py',
 . 'python3 Display/main.py'
 
-#How to run - Speech_Recognition#
+###How to run - Speech_Recognition:
 . 'python3 Speech_Recognition/speech_reco.py'
 
 
-### Next steps ###
+## Next steps ##
 
-#To make: Device-Device text streamer on webapp, using video conference streaming server#
+###To make: Device-Device text streamer on webapp, using video conference streaming server#
 
-#Overview:#
-Speech-to-text AI on edge
-When speech is detected, text is sent live to all other devices
-The AI will detect the internet bandwidth
-The text will appear only if somebody has low bandwidth
-If somebody's internet connection is lost and he is reconnected again, the AI will show the person what he missed the last few minutes. 
+###Overview:
 
-#How we will make it:#
-Flask
-Zoom API
-Google Web Speach API (for speech recognition)
+Speech-to-text AI on edge,
+When speech is detected -> text is sent live to all other devices,
+The AI will detect the internet bandwidth,
+The text will appear only if somebody has low bandwidth,
+If somebody's internet connection is lost and he is reconnected again, the AI will show the person what he missed the last few minutes
+
+###How we will make it:
+
+Flask,
+Zoom API,
+Google Web Speach API (for speech recognition),
 OpenCV
 
 Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
