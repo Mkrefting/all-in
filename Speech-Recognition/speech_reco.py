@@ -12,6 +12,12 @@ print(r.recognize_google(audio))
 
 import speech_recognition as sr
 
+def update_file(speaker,text):
+    with open('lesson_text.txt','a') as f:
+        f.write(speaker+':'+text)
+        
+speaker = input('Speaker Name: ')
+
 # obtain audio from the microphone
 r = sr.Recognizer()
 with sr.Microphone() as source:
@@ -23,7 +29,11 @@ try:
     # for testing purposes, we're just using the default API key
     # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
     # instead of `r.recognize_google(audio)`
-    print("Output:" + r.recognize_google(audio))
+    
+    output = r.recognize_google(audio)
+    print("Output:" + output)
+    update_file(speaker,output)
+    
 except sr.UnknownValueError:
     print("Could not understand audio")
 except sr.RequestError as e:
