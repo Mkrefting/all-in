@@ -55,9 +55,10 @@ def recognise():
 
 #initialise lesson
 start_lesson()
-
+print('\n\n          ### DEMO of our Speech Recognition Model for All-In ###')
 #loop through lesson
 while True:
-    print('\n\n\n')
+    print('\n')
     #get CC of speaker
     recognise()
+    print('[INFO] Audio transcript saved to file...')

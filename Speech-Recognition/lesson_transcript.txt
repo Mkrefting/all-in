@@ -1,1 +1,2 @@
-2020-05-03 12:14:02
+2020-05-03 20:19:47
+Max:sending a piece of text across the internet requires far less bandwidth than a live video and audio stream and can be sent in circumstances where video streams cannot
