@@ -13,7 +13,7 @@ def get_bandwidth():
 def time_to_test_bandwidth():
     global counter
     counter += 1
-    if counter == 30:
+    if counter == 100:
         print('[INFO] Testing Internet Bandwidth...')
         counter = 0
         return True
@@ -23,7 +23,7 @@ def time_to_test_bandwidth():
 
 def add_bandwidth(frame):
     (h,w,d) = frame.shape
-    posx = int(round(w * 0.75))
+    posx = int(round(w * 0.7))
     posy = int(round(h * 0.05))
     text = 'Internet Bandwidth: ' + str(bandwidth) + ' Mbps'
     if bandwidth >= 20:
@@ -65,38 +65,70 @@ def add_cc(frame,cc):
     (h,w,d) = frame.shape
     posx = int(round(w * 0.1))
     posy = int(round(h * 0.9))
+    cv2.rectangle(frame, (posx-10, posy-37), (posx+1050, posy+14), (10, 10, 10), -1)
     cv2.putText(frame, cc, (posx, posy), 
-	cv2.FONT_HERSHEY_SIMPLEX, 1.2, (80,80,80), 3)
+	cv2.FONT_HERSHEY_SIMPLEX, 1.2, (200,200,200), 2)
 
-
+#demo version - will not adjust...
+def add_missed_text(frame):
+    (h,w,d) = frame.shape
+    posx = int(round(w * 0.1))
+    posy = int(round(h * 0.9))
+    cv2.rectangle(frame, (posx-10, posy-37), (posx+1050, posy+14), (10, 10, 10), -1)
+    cv2.rectangle(frame, (posx-10, posy-87), (posx+1050, posy-36), (10, 10, 10), -1)
+    cv2.rectangle(frame, (posx-10, posy-137), (posx+1050, posy-86), (10, 10, 10), -1)
+    cv2.putText(frame, 'Max: What is the answer?', (posx, posy), 
+	cv2.FONT_HERSHEY_SIMPLEX, 1.2, (200,200,200), 2)
+    cv2.putText(frame, 'Teacher: Good question, Henry VIII', (posx, posy-50), 
+	cv2.FONT_HERSHEY_SIMPLEX, 1.2, (200,200,200), 2)
+    cv2.putText(frame, "Suhaas: What is the world's smallest country?", (posx, posy-100), 
+	cv2.FONT_HERSHEY_SIMPLEX, 1.2, (200,200,200), 2)   
+    
 def make_pixelated():
     global frame
     height, width = frame.shape[:2]
-    w, h = int(round(width/4)), int(round(height/4))
+    w, h = int(round(width/5)), int(round(height/5))
     temp = cv2.resize(frame, (w, h), interpolation=cv2.INTER_LINEAR)
     frame = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
 
+def add_no_connection():
+    global frame
+    temp = np.zeros_like(frame)
+    frame = temp
+    height,width = frame.shape[:2]
+    posx = (int(round(width/4)))+50
+    posy = (int(round(height/2)))
+    cv2.putText(frame, 'No Internet Connection',(posx,posy), 
+	cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 3)
+
 #counter for regular wifi strength tests
-counter = 29
+counter = 39
 show_cc = False
 time_since_start = 6
 bandwidth = 100
+no_connection = False
+show_missed_text = False
+time_show_missed_text = 150
 
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-
     #check bandwidth every 100 frames
     if time_to_test_bandwidth():
         bandwidth = get_bandwidth()
-        if bandwidth < 10:
-        if bandwidth < 25:
+        if bandwidth == 0:
+            no_connection = True
+            show_cc = False
+            show_missed_text = True
+        elif bandwidth < 25:
+            no_connection = False
             show_cc = True
         else:
+            no_connection = False
             show_cc = False
     
-    if show_cc:
+    if show_cc and not no_connection:
         make_pixelated()
         #get CC
         cc = get_cc() 
@@ -110,8 +142,20 @@ while(True):
             time_since_start = 6
     
         #apply adjustments to make look bad quality video
-        cv2.waitKey(400)
-
+        cv2.waitKey(200)
+    
+    #if no_connection
+    if no_connection:
+        add_no_connection()
+        
+    #connection back on but havent yet shown words
+    if not no_connection and show_missed_text:
+        add_missed_text(frame)
+        time_show_missed_text -= 1
+        if time_show_missed_text == 0:
+            show_missed_text = False
+            time_show_missed_text = 100
+        
     #always show bandwidth
     add_bandwidth(frame)
     

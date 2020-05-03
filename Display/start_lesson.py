@@ -34,7 +34,7 @@ def start_lesson():
         line = random.choice(all_lines)
         write_line(line)
         print(line)
-        time.sleep(1.7)
+        time.sleep(2.1)
 
 
 start_lesson()
