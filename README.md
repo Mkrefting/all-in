@@ -33,10 +33,9 @@ the user currently sees a 'live video' of themselves
 a random bandwidth between 1 and 70 (Mbps) is generated and displayed
 CCs are updated live to the 'lesson_text.txt' file from a store of audio transcript, not from all the teacher / not the students 
 
-
 ### SETUP ###
 
-#Download Requirements (for MacOS X)#
+##Download Requirements (for MacOS X)##
 . 'brew install portaudio'
 . 'pip install -r requirements.txt'
 
@@ -49,3 +48,27 @@ CCs are updated live to the 'lesson_text.txt' file from a store of audio transcr
 
 
 ### Next steps ###
+
+#To make: Device-Device text streamer on webapp, using video conference streaming server#
+
+#Overview:#
+Speech-to-text AI on edge
+When speech is detected, text is sent live to all other devices
+The AI will detect the internet bandwidth
+The text will appear only if somebody has low bandwidth
+If somebody's internet connection is lost and he is reconnected again, the AI will show the person what he missed the last few minutes. 
+
+#How we will make it:#
+Flask
+Zoom API
+Google Web Speach API (for speech recognition)
+OpenCV
+
+Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
+
+#End goal: integrate with current video streaming services (e.g. Zoom)#
+
+#Our resources to continue development:#
+https://rapidapi.com/
+https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
+How to launch flask app on production server: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
