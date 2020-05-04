@@ -76,9 +76,9 @@ To make: Device-Device text streamer on webapp, using video conference streaming
 * Google Web Speach API (for speech recognition)
 * OpenCV
 
-### Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
+#### Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
 
-### End goal: integrate with current video streaming services (e.g. Zoom)
+#### End goal: integrate with current video streaming services (e.g. Zoom)
 
 ### Our resources to continue development:
 * [https://rapidapi.com/]
