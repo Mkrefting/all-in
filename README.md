@@ -39,26 +39,27 @@ We have split up 'All-In' into two parts:
 ## SETUP
 
 ### Download Requirements (for MacOS X)
-'''
+'```
 brew install portaudio
 pip install -r requirements.txt
-'''
+```
 
 ### How to run - Display
-'''
-python3 Display/start_lesson.py
-python3 Display/main.py
-'''
+```
+cd Display
+python3 start_lesson.py
+python3 main.py
+```
 
 ### How to run - Speech_Recognition
-'''
-python3 Speech_Recognition/speech_reco.py
-'''
-
+```
+cd Speech_Recognition
+python3 speech_reco.py
+```
 
 ## Next steps
 
-To make: Device-Device text streamer on webapp, using video conference streaming server#
+To make: Device-Device text streamer on webapp, using video conference streaming server
 
 ### Overview:
 
@@ -75,11 +76,11 @@ To make: Device-Device text streamer on webapp, using video conference streaming
 * Google Web Speach API (for speech recognition)
 * OpenCV
 
-## Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
+### Why: making a standalone web app allows us to test/improve it, as if acting as an add-on to popular video conferencing services
 
-## End goal: integrate with current video streaming services (e.g. Zoom)
+### End goal: integrate with current video streaming services (e.g. Zoom)
 
-# Our resources to continue development:
+### Our resources to continue development:
 * [https://rapidapi.com/]
 * [https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask]
 * [https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps] - how to launch flask app on production server
