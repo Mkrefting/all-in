@@ -39,7 +39,7 @@ We have split up 'All-In' into two parts:
 ## SETUP
 
 ### Download Requirements (for MacOS X)
-'```
+```
 brew install portaudio
 pip install -r requirements.txt
 ```
