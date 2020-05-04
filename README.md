@@ -46,14 +46,14 @@ pip install -r requirements.txt
 
 ### How to run - Display
 ```
-cd Display
+cd all-in/Display
 python3 start_lesson.py
 python3 main.py
 ```
 
 ### How to run - Speech_Recognition
 ```
-cd Speech_Recognition
+cd all-in/Speech_Recognition
 python3 speech_reco.py
 ```
 
