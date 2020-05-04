@@ -1,5 +1,5 @@
 # All-In
-"Making Online Education Accessible for All!"
+*Making Undisturbed Online Education Accessible for Everyone!*
 
 
 ## Our Code
