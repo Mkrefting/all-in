@@ -2,7 +2,7 @@
 *Making Undisturbed Online Education Accessible for Everyone!*
 
 
-## Our Code
+## OUR CODE
 We have split up 'All-In' into two parts:
 1. Live transcription of speaker's voice to text
 2. User's display; how it adapts when low bandwidth and how it adapts when no internet connection at all
@@ -57,7 +57,7 @@ cd all-in/Speech_Recognition
 python3 speech_reco.py
 ```
 
-## Next steps
+## NEXT STEPS
 
 To make: Device-Device text streamer on webapp, using video conference streaming server
 
