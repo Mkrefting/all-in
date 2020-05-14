@@ -70,7 +70,7 @@
   </form>
 -->
   <div id="message-container"></div>
-  <form id="send-container">
+  <form id="send-container" method="post">
     <input type="text" name="q" id="message-input" placeholder="Press the mic and speak... then send..." />
     <img onclick="startRecording()" src="img/mic.png" height="50"/>
     <button type="submit" id="send-button">Send</button>
@@ -90,6 +90,7 @@
                   //document.getElementById("send-container").submit();
                   //document.send-container.submit();
               };
+
               recognition.onerror = function (e) {
                   recognition.stop();
                   //document.getElementById("send-container").submit();
