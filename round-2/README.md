@@ -5,6 +5,7 @@
 ### Our Code
 * Node.js server
 * Socket.io manages real time web socket connections
+* Web Speech API (webkitSpeechRecognition) for speech-to-text conversion
 
 ### How All-In currently works:
 
@@ -35,7 +36,7 @@ npm install dependencies
 cd Downloads/all-in/round2
 node app.js
 ```
-* Anyone in your LAN can now access the website
+* Anyone in your LAN can now access the website through google chrome ('http://your-local-ip:8080')
 
 ### Next Steps - Tech Features:
 * Automatic speech recognition when voice is detected (no mic button) -> automatically send transcript (no send button)
@@ -44,7 +45,7 @@ node app.js
 * Use a database (e.g. Firebase) to store audio transcript - past audio transcript can be sent to students even after complete WiFi cutout
 * Perform speech recognition on edge - similar to Pocketsphinx.js
 * Require users to login with own details
-* Teacher (creator of room) admits students into room
+* Teacher (creator of room) has full control of students in room
 * Mobile phone compatible
 * Create our own speech-to-text model
 * Allow users to correct transcription where necessary to improve the model
