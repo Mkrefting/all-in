@@ -37,10 +37,14 @@ node app.js
 ```
 * Anyone in your LAN can now access the website
 
-### Next Steps:
-
-* Speech-to-text AI on edge
-* When speech is detected -> text is sent live to all other devices connected to private room
-* The AI will detect the internet bandwidth
-* The text will appear only if somebody has low bandwidth
-* If somebody's internet connection is lost completely and (s)he is reconnected again, the AI will show the person what (s)he has missed in the last few minutes through text
+### Next Steps - Tech Features:
+* Automatic speech recognition when voice is detected (no mic button) -> automatically send transcript (no send button)
+* Mute button (useful for students)
+* Username and Password for private room login
+* Use a database (e.g. Firebase) to store audio transcript - past audio transcript can be sent to students even after complete WiFi cutout
+* Perform speech recognition on edge - similar to Pocketsphinx.js
+* Require users to login with own details
+* Teacher (creator of room) admits students into room
+* Mobile phone compatible
+* Create our own speech-to-text model
+* Allow users to correct transcription where necessary to improve the model
