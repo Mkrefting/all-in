@@ -1,6 +1,4 @@
-//change for your private IP address
-const socket = io('http://your-local-ip:8080')
-
+const socket = io('http://192.168.1.239:8080')
 const messageContainer = document.getElementById('message-container')
 const roomContainer = document.getElementById('room-container')
 const messageForm = document.getElementById('send-container')

@@ -76,28 +76,31 @@
     <button type="submit" id="send-button">Send</button>
   </form>
 
-  <script>  function startRecording() {
-          if (window.hasOwnProperty("webkitSpeechRecognition")) {
-              var recognition = new webkitSpeechRecognition();
-              recognition.continuous = false;
-              recognition.interimResults = false;
-              recognition.lang = "en - US";
-              recognition.start();
-              recognition.onresult = function (e) {
-                  document.getElementById("message-input").value = e.results[0][0].transcript;
-                  recognition.stop();
-                  //document.getElementById("speak - form").submit();
-                  //document.getElementById("send-container").submit();
-                  //document.send-container.submit();
-              };
+<script>
+function startRecording() {
+  if (window.hasOwnProperty("webkitSpeechRecognition")) {
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en - US";
+      recognition.start();
+      recognition.onresult = function (e) {
+        document.getElementById("message-input").value = e.results[0][0].transcript;
+        recognition.stop;
+        recognition.start;
+        //document.getElementById("speak - form").submit();
+        //document.getElementById("send-container").submit();
+        //document.send-container.submit();
+        }
+      };
 
-              recognition.onerror = function (e) {
-                  recognition.stop();
-                  //document.getElementById("send-container").submit();
-              }
-          }
+      recognition.onerror = function (e) {
+        console.log('error')
+        recognition.stop();
+          //document.getElementById("send-container").submit();
       }
-  </script>
+  }
+</script>
   <!-- Optional JavaScript -->
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
