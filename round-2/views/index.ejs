@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All-In</title>
+<!-- <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>-->
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <img alt="Poster" id="poster" src="/img/all-in-logo.png" height="100">
+  <h3 class="center">Welcome to All-In </h3>
+  <div id="room-container">
+    <% Object.keys(rooms).forEach(room => { %>
+      <div><%= room %></div>
+      <a href="/<%= room %>">Join</a>
+    <% }) %>
+  </div>
+  <form action="/room" method="POST">
+    <input name="room" type="text" required>
+    <button type="submit">New Room</button>
+  </form>
+</body>
+</html>

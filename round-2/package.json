@@ -1,0 +1,17 @@
+{
+  "name": "current-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "bootstrp": "4.5.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "socket.io": "^2.2.0"
+  }
+}

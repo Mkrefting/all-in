@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <title>All-In</title>
+  <body>
+  <figure>
+    <img alt="Poster" id="poster" src="/img/all-in-logo.png" height="120"/>
+    <figcaption><h3><em>Your Private</em></h3></figcaption>
+    <figcaption><h3><em>Classroom</em></h3></figcaption>
+  </figure>
+  </body>
+  <script>
+    const roomName = "<%= roomName %>"
+  </script>
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .body img{
+      margin-top: 0;
+      float: left;
+    }
+
+    #message-container {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    #message-container div {
+      background-color: #CCC;
+      padding: 5px;
+    }
+
+    #message-container div:nth-child(2n) {
+      background-color: #FFF;
+    }
+
+    #send-container {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+    }
+
+    #message-input {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+<!--
+  <div id="message-container"></div>
+  <form id="send-container">
+    <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send</button>
+  </form>
+-->
+  <div id="message-container"></div>
+  <form id="send-container">
+    <input type="text" name="q" id="message-input" placeholder="Press the mic and speak... then send..." />
+    <img onclick="startRecording()" src="img/mic.png" height="50"/>
+    <button type="submit" id="send-button">Send</button>
+  </form>
+
+  <script>  function startRecording() {
+          if (window.hasOwnProperty("webkitSpeechRecognition")) {
+              var recognition = new webkitSpeechRecognition();
+              recognition.continuous = false;
+              recognition.interimResults = false;
+              recognition.lang = "en - US";
+              recognition.start();
+              recognition.onresult = function (e) {
+                  document.getElementById("message-input").value = e.results[0][0].transcript;
+                  recognition.stop();
+                  //document.getElementById("speak - form").submit();
+                  //document.getElementById("send-container").submit();
+                  //document.send-container.submit();
+              };
+              recognition.onerror = function (e) {
+                  recognition.stop();
+                  //document.getElementById("send-container").submit();
+              }
+          }
+      }
+  </script>
+  <!-- Optional JavaScript -->
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
